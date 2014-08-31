@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  db: 'mongodb://fitquest-rpg:A $up3r $4f3 p4$$w0rd@ds033760.mongolab.com:33760/fitquest-rpg',
+  db: 'mongodb://fitquestadmin:A $up3r $4f3 p4$$w0rd@ds033760.mongolab.com:33760/fitquest-rpg',
   /**
    * Database options that will be passed directly to mongoose.connect
    * Below are some examples.
@@ -27,7 +27,7 @@ module.exports = {
     */
   },
   app: {
-    name: 'MEAN - A Modern Stack - Production'
+    name: 'FitQuest'
   },
   facebook: {
     clientID: 'APP_ID',
