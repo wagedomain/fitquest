@@ -1,12 +1,12 @@
 'use strict';
 
 module.exports = {
-  db: 'mongodb://localhost/mean-dev',
+  db: 'mongodb://localhost/fitquest-rpg',
   mongoose: {
     debug: true
   },
   app: {
-    name: 'MEAN - FullStack JS - Development'
+    name: 'FitQuest'
   },
   facebook: {
     clientID: 'APP_ID',

@@ -16,6 +16,7 @@ angular.module('mean.users')
             $scope.loginError = 0;
             $rootScope.user = response.user;
             $rootScope.$emit('loggedin');
+
             if (response.redirect) {
               if (window.location.href === response.redirect) {
                 //This is so an admin user will get full admin page
@@ -31,6 +32,8 @@ angular.module('mean.users')
             $scope.loginerror = 'Authentication failed.';
           });
       };
+
+      
     }
   ])
   .controller('RegisterCtrl', ['$scope', '$rootScope', '$http', '$location',
@@ -52,7 +55,7 @@ angular.module('mean.users')
             $scope.registerError = 0;
             $rootScope.user = $scope.user;
             $rootScope.$emit('loggedin');
-            $location.url('/');
+            $location.url('/character/create');
           })
           .error(function(error) {
             // Error: authentication failed

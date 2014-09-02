@@ -1,0 +1,46 @@
+<div class="" data-ng-controller="CreateCharacterController">
+    <h1>Create your character</h1>
+    <form ng-submit="createCharacter()" class="signin form-horizontal">
+
+        <!-- Name -->
+        <div class="form-group">
+            <label for="email" class="col-md-4 control-label">Character Name</label>
+            <div class="col-md-8">
+                <input required id="charname" type="text" name="charname" placeholder="Name" class="form-control" ng-model="character.name" />
+            </div>
+        </div>
+
+        <!-- Gender -->
+        <div class="form-group">
+            <label for="password" class="col-md-4 control-label">Set Your Gender</label>
+            <div class="col-md-4">
+                <input type="radio" name="gender" id="genderMale" value="male" ng-model="character.gender" ng-required="true" />
+                <label for="sizeSmall">Male</label>
+
+                <input type="radio" name="gender" id="genderFemale" value="female" ng-model="character.gender" ng-required="true" />
+                <label for="sizeMed">Female</label>
+            </div>
+        </div>
+
+        <!-- Class -->
+        <div class="form-group">
+            <label for="password" class="col-md-4 control-label">Choose Your Class</label>
+            <div class="col-md-6">
+                <input type="radio" name="class" id="classStep" value="1" ng-model="character.class" ng-required="true" />
+                <label for="sizeSmall">Step Wizard</label> - get 25% more experience for your steps<br />
+                <input type="radio" name="class" id="classActive" value="2" ng-model="character.class" ng-required="true" />
+                <label for="sizeSmall">Active Warrior</label> - get 25% more experience for your active minutes<br />
+                <input type="radio" name="class" id="classSleep" value="3" ng-model="character.class" ng-required="true" />
+                <label for="sizeSmall">Sleep Rogue</label> - restore 20% more hitpoints per day for your sleep<br />
+                <input type="radio" name="class" id="classAverage" value="4" ng-model="character.class" ng-required="true" />
+                <label for="sizeSmall">Average Joe</label> - get 10% more experience for steps and active minutes<br />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-4 col-md-8">
+                <button type="submit" class="btn btn-primary">Start Game</button>
+            </div>
+        </div>
+    </form>
+</div>

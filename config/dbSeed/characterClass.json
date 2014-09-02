@@ -1,0 +1,29 @@
+{
+    "name": "Step Wizard",
+    "id": 1,
+    "stepAdjustment": 1.25,
+    "activeAdjustment": 1.0,
+    "sleepAdjustment": 1.0
+    
+}
+{
+    "name": "Active Warrior",
+    "id": 1,
+    "stepAdjustment": 1.0,
+    "activeAdjustment": 1.25,
+    "sleepAdjustment": 1.0
+}
+{
+    "name": "Sleep Rogue",
+    "id": 1,
+    "stepAdjustment": 1.0,
+    "activeAdjustment": 1.0,
+    "sleepAdjustment": 1.20
+}
+{
+    "name": "Average Joe",
+    "id": 1,
+    "stepAdjustment": 1.10,
+    "activeAdjustment": 1.10,
+    "sleepAdjustment": 1.0
+}
