@@ -11,8 +11,11 @@ angular.module('mean.system').controller('IndexController', ['$scope', '$rootSco
 
     
     getCharacter = function(userId) {
+
+    	console.log(userId);
+
         $http.get('/characters', {
-            params: { user: userId }
+            data: { user: userId }
         })
         .success(function(response){
         	if(response.length > 0){
