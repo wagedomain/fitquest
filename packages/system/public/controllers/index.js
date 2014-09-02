@@ -1,12 +1,13 @@
 'use strict';
 
-angular.module('mean.system').controller('IndexController', ['$scope', '$rootScope', 'Global', '$http',
-  function($scope, $rootScope, Global, $http) {
+angular.module('mean.system').controller('IndexController', ['$scope', '$rootScope', 'Global', '$http', '$location',
+  function($scope, $rootScope, Global, $http, $location) {
   	var getCharacter;
     $scope.global = Global;
 
-    //if($scope.character === {}){
-    //}
+    if(Global.user.length === 0) {
+      $location.url('/login');        
+    }
 
     
     getCharacter = function(userId) {
@@ -14,7 +15,11 @@ angular.module('mean.system').controller('IndexController', ['$scope', '$rootSco
             params: { user: userId }
         })
         .success(function(response){
-          $scope.character = response[0];
+        	if(response.length > 0){
+          		$scope.character = response[0];
+          	} else {
+          		$location.url('/characters/create');
+          	}
         });
       };
 
