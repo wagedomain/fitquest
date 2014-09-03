@@ -5,15 +5,10 @@ angular.module('mean.system').controller('IndexController', ['$scope', '$rootSco
   	var getCharacter;
     $scope.global = Global;
 
-    if(Global.user.length === 0) {
-      $location.url('/login');        
-    }
-    
     getCharacter = function(userId) {
-
         $http.get('/characters?userId='+userId)
         .success(function(response){
-        	if(response){
+        	if(response.length >0){
           		$scope.character = response;
           		Global.character = response;
           	} else {
@@ -23,8 +18,12 @@ angular.module('mean.system').controller('IndexController', ['$scope', '$rootSco
         });
       };
 
-    if(Global.character.name === undefined) {
-    	getCharacter(Global.user._id);
-    }
+    if(Global.user.userId === undefined) {
+    	$location.path('/auth/login');        
+    } else {
+	    if(Global.character.name === undefined) {
+	    	getCharacter(Global.user._id);
+	    }
+	}
   }
 ]);
