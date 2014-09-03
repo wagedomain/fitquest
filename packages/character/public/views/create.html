@@ -26,14 +26,10 @@
         <div class="form-group">
             <label for="password" class="col-md-4 control-label">Choose Your Class</label>
             <div class="col-md-6">
-                <input type="radio" name="class" id="classStep" value="1" ng-model="character.class" ng-required="true" />
-                <label for="sizeSmall">Step Wizard</label> - get 25% more experience for your steps<br />
-                <input type="radio" name="class" id="classActive" value="2" ng-model="character.class" ng-required="true" />
-                <label for="sizeSmall">Active Warrior</label> - get 25% more experience for your active minutes<br />
-                <input type="radio" name="class" id="classSleep" value="3" ng-model="character.class" ng-required="true" />
-                <label for="sizeSmall">Sleep Rogue</label> - restore 20% more hitpoints per day for your sleep<br />
-                <input type="radio" name="class" id="classAverage" value="4" ng-model="character.class" ng-required="true" />
-                <label for="sizeSmall">Average Joe</label> - get 10% more experience for steps and active minutes<br />
+                <div data-ng-repeat="class in characterClasses">
+                <input type="radio" name="class" data-ng-model="character.class" ng-value="class._id" /><strong>{{ class.name }}</strong> - Descripion goes here
+                <br />
+                </div>
             </div>
         </div>
 

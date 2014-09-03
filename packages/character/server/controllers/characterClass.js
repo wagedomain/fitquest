@@ -85,24 +85,14 @@ exports.show = function(req, res) {
  * List of CharacterClasss
  */
 exports.all = function(req, res) {
+  CharacterClass.find({}, function(err, CharacterClass) {
+    if (err) {
+      return res.json(500, {
+        error: 'Cannot list the CharacterClasss'
+      });
+    }
+    res.json(CharacterClass);
 
-  if(req.query.userId) {
-    CharacterClass.findOne({'user': req.query.userId}, function(err, CharacterClassData) {
-      if(err) {
-        return res.json(500, { error: 'Cannot get CharacterClass by userId'});
-      } else {
-        res.json(CharacterClassData);
-      }
-    });
-  } else {
-    CharacterClass.find().sort('-created').populate('user', 'name username').exec(function(err, CharacterClasss) {
-      if (err) {
-        return res.json(500, {
-          error: 'Cannot list the CharacterClasss'
-        });
-      }
-      res.json(CharacterClasss);
+  });
 
-    });
-  }
 };

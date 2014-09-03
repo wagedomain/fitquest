@@ -10,6 +10,13 @@ angular.module('mean.character').controller('CreateCharacterController', ['$scop
         //store user's character for creation
         $scope.character = {};
 
+        //get character class list
+        $http.get('/characterClass')
+        .success(function(response) {
+          console.log(response);
+          $scope.characterClasses = response;
+        });
+
         //create character
         $scope.createCharacter = function() {
         $scope.nameError = null;

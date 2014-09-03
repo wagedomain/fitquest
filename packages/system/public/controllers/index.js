@@ -12,13 +12,13 @@ angular.module('mean.system').controller('IndexController', ['$scope', '$rootSco
           		$scope.character = response;
           		Global.character = response;
           	} else {
-          		console.log(response.user);
           		$location.url('/characters/create');
           	}
         });
       };
 
-    if(Global.user.userId === undefined) {
+    if(Global.user._id === undefined) {
+
     	$location.path('/auth/login');        
     } else {
 	    if(Global.character.name === undefined) {
