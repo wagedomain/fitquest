@@ -82,16 +82,27 @@ exports.show = function(req, res) {
 };
 
 /**
- * List of Articles
+ * List of characters
  */
 exports.all = function(req, res) {
-  Character.find().sort('-created').populate('user', 'name username').exec(function(err, characters) {
-    if (err) {
-      return res.json(500, {
-        error: 'Cannot list the characters'
-      });
-    }
-    res.json(characters);
 
-  });
+  if(req.query.userId) {
+    Character.findOne({'user': req.query.userId}, function(err, characterData) {
+      if(err) {
+        return res.json(500, { error: 'Cannot get character by userId'});
+      } else {
+        res.json(characterData);
+      }
+    });
+  } else {
+    Character.find().sort('-created').populate('user', 'name username').exec(function(err, characters) {
+      if (err) {
+        return res.json(500, {
+          error: 'Cannot list the characters'
+        });
+      }
+      res.json(characters);
+
+    });
+  }
 };

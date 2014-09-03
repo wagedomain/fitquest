@@ -2,7 +2,7 @@
 
 var characters = require('../controllers/characters');
 
-// Article authorization helpers
+// Character authorization helpers
 var hasAuthorization = function(req, res, next) {
   if (!req.user.isAdmin && req.article.user.id !== req.user.id) {
     return res.send(401, 'User is not authorized');
@@ -20,6 +20,6 @@ module.exports = function(Characters, app, auth) {
     .put(auth.requiresLogin, hasAuthorization, characters.update)
     .delete(auth.requiresLogin, hasAuthorization, characters.destroy);
 
-  // Finish with setting up the articleId param
+  // Finish with setting up the characterId param
   app.param('characterId', characters.character);
 };

@@ -19,10 +19,10 @@ angular.module('mean.character').controller('CreateCharacterController', ['$scop
           gender: $scope.character.gender,
           characterClass: $scope.character.class
         })
-          .success(function() {
+          .success(function(response) {
             // authentication OK
             $scope.createError = 0;
-            $rootScope.character = $scope.character;
+            Global.character = response;
             $rootScope.$emit('characterCreated');
             $location.url('/');
           })

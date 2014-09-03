@@ -52,7 +52,7 @@ CharacterSchema.path('characterClass').validate(function(characterClass) {
  */
 CharacterSchema.statics.load = function(id, cb) {
   this.findOne({
-    _id: id
+    user: id
   }).populate('user', 'name username').exec(cb);
 };
 
