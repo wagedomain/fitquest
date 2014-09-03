@@ -21,8 +21,9 @@ var CharacterSchema = new Schema({
     trim: true
   },
   characterClass: {
-    type: Number,
-    ref: 'Class'
+    type: Schema.ObjectId,
+    ref: 'CharacterClass',
+    required: true
   },
   gender: {
     type: String,
