@@ -224,8 +224,8 @@ module.exports = function(passport) {
 
         user = new User({
           name: profile.displayName,
-          //email: profile.emails[0].value,
-          //username: profile.emails[0].value,
+          email: 'test@test.com',
+          username: profile.id,
           provider: 'fitbit',
           fitbit: profile._json,
           roles: ['authenticated']
