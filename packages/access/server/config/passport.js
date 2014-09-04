@@ -212,9 +212,25 @@ module.exports = function(passport) {
     callbackURL: config.fitbit.callbackURL,
   },
   function(token, tokenSecret, profile, done) {
-    User.findOrCreate({ fitbitId: profile.id }, function (err, user) {
-      return done(err, user);
-    });
+    User.findOne({
+        'fitbit.id': profile.id
+      }, function(err, user) {
+        if (user) {
+          return done(err, user);
+        }
+        user = new User({
+          name: profile.displayName,
+          email: profile.emails[0].value,
+          username: profile.emails[0].value,
+          provider: 'fitbit',
+          fitbit: profile._json,
+          roles: ['authenticated']
+        });
+        user.save(function(err) {
+          if (err) console.log(err);
+          return done(err, user);
+        });
+      });
   }
 ));
 
