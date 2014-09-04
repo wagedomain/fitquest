@@ -87,7 +87,9 @@ exports.show = function(req, res) {
 exports.all = function(req, res) {
 
   if(req.query.userId) {
-    Character.findOne({'user': req.query.userId}, function(err, characterData) {
+    Character.findOne({'user': req.query.userId})
+    .populate('characterClass')
+    .exec(function(err, characterData) {
       if(err) {
         return res.json(500, { error: 'Cannot get character by userId'});
       } else {

@@ -27,7 +27,7 @@
             <label for="password" class="col-md-4 control-label">Choose Your Class</label>
             <div class="col-md-6">
                 <div data-ng-repeat="class in characterClasses">
-                <input type="radio" name="class" data-ng-model="character.class" ng-value="class._id" /><strong>{{ class.name }}</strong> - Descripion goes here
+                <input type="radio" name="class" data-ng-model="character.class" ng-value="class._id" /><strong>{{ class.name }}</strong> - {{ class.description }}
                 <br />
                 </div>
             </div>
@@ -35,7 +35,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-4 col-md-8">
-                <button type="submit" class="btn btn-primary">Start Game</button>
+                <button type="submit" class="btn btn-primary">Connect a Device</button>
             </div>
         </div>
     </form>
