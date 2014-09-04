@@ -102,7 +102,8 @@
     "passport-oauth2-client-password": "latest",
     "oauth2orize": "latest",
     "debug": "~0.7.2",
-    "passport-fitbit": "~0.1.2"
+    "passport-fitbit": "~0.1.2",
+    "mongoose-findorcreate": "~0.1.2"
   },
   "devDependencies": {
     
