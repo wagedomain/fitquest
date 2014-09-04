@@ -96,7 +96,12 @@
     "ms": "^0.6.2",
     "requirejs": "^2.1.11",
     "should": "3.3.1",
-    "supertest": "0.11.0"
+    "supertest": "0.11.0",
+    "passport-http": "latest",
+    "passport-http-bearer": "latest",
+    "passport-oauth2-client-password": "latest",
+    "oauth2orize": "latest",
+    "debug": "~0.7.2"
   },
   "devDependencies": {
     
