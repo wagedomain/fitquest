@@ -5,7 +5,7 @@
  */
 var mean = require('meanio'),
   Module = mean.Module,
-  passport = require('passport');
+  passportObj = require('passport');
 
 var Access = new Module('access');
 
@@ -14,7 +14,7 @@ Access.register(function(database) {
   // Register auth dependency
 
   var auth = require('./server/config/authorization');
-  require('./server/config/passport')(passport);
+  require('./server/config/passport')(passportObj);
 
   // This is for backwards compatibility
   mean.register('auth', function() {
@@ -22,10 +22,10 @@ Access.register(function(database) {
   });
 
   mean.register('passport', function() {
-    return passport;
+    return passportObj;
   });
 
-  Access.passport = passport;
+  Access.passport = passportObj;
   Access.middleware = auth;
 
   return Access;

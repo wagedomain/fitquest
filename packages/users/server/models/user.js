@@ -66,11 +66,7 @@ var UserSchema = new Schema({
   salt: String,
   resetPasswordToken: String,
   resetPasswordExpires: Date,
-  facebook: {},
-  twitter: {},
-  github: {},
-  google: {},
-  linkedin: {}
+  fitbit: {}
 });
 
 /**

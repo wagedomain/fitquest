@@ -5,6 +5,10 @@ angular.module('mean.system').controller('IndexController', ['$scope', '$rootSco
   	var getCharacter;
     $scope.global = Global;
 
+    if($rootScope.user !== undefined) {
+      Global.user = $rootScope.user;
+    }
+
     getCharacter = function(userId) {
         $http.get('/characters?userId='+userId)
         .success(function(response){
@@ -18,7 +22,7 @@ angular.module('mean.system').controller('IndexController', ['$scope', '$rootSco
       };
 
     if(Global.user._id === undefined) {
-
+      console.log(Global);
     	$location.path('/auth/login');        
     } else {
 	    if(Global.character.name === undefined) {

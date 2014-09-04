@@ -86,6 +86,7 @@
       "inject"      : false,
       "expect"      : false,
       "spyOn"       : false,
-      "sys"         : false
+      "sys"         : false,
+      "passport"    : false
     }
 }

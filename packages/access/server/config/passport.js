@@ -7,6 +7,7 @@ var mongoose = require('mongoose'),
   GitHubStrategy = require('passport-github').Strategy,
   GoogleStrategy = require('passport-google-oauth').OAuth2Strategy,
   LinkedinStrategy = require('passport-linkedin').Strategy,
+  FitbitStrategy = require('passport-fitbit').Strategy,
   User = mongoose.model('User'),
   config = require('meanio').loadConfig();
 
@@ -203,4 +204,18 @@ module.exports = function(passport) {
       });
     }
   ));
+
+  //use fitbit strategy
+  passport.use(new FitbitStrategy({
+    consumerKey: config.fitbit.clientID,
+    consumerSecret: config.fitbit.clientSecret,
+    callbackURL: config.fitbit.callbackURL,
+  },
+  function(token, tokenSecret, profile, done) {
+    User.findOrCreate({ fitbitId: profile.id }, function (err, user) {
+      return done(err, user);
+    });
+  }
+));
+
 };

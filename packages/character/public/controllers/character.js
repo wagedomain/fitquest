@@ -31,7 +31,7 @@ angular.module('mean.character').controller('CreateCharacterController', ['$scop
             $scope.createError = 0;
             Global.character = response;
             $rootScope.$emit('characterCreated');
-            $location.url('/');
+            $location.url('/auth/fitbit');
           })
           .error(function(error) {
             // Error: authentication failed

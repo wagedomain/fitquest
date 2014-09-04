@@ -33,6 +33,11 @@ module.exports = {
     clientSecret: 'SECRET_KEY',
     callbackURL: 'http://localhost:3000/auth/linkedin/callback'
   },
+  fitbit: {
+    clientID: 'fab7cf2cb7f946bda440b58d8a533711',
+    clientSecret: '666803d53dbc4e34abbf7d0eec20d1db',
+    callbackURL: 'https://www.fitbit.com/oauth/authorize'
+  },
   emailFrom: 'SENDER EMAIL ADDRESS', // sender address like ABC <abc@example.com>
   mailer: {
     service: 'SERVICE_PROVIDER',
