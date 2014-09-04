@@ -218,9 +218,13 @@ module.exports = function(passport) {
         if (user) {
           return done(err, user);
         }
+        console.log('=============================');
+        console.log(profile);
+        console.log('=============================');
+
         user = new User({
           name: profile.displayName,
-          email: profile.emails[0].value,
+          //email: profile.emails[0].value,
           username: profile.emails[0].value,
           provider: 'fitbit',
           fitbit: profile._json,
