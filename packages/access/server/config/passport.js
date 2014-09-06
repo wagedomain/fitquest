@@ -217,6 +217,7 @@ module.exports = function(passport) {
     //TODO - update fitbit object in user record
     
     console.log(profile);     
+    return done(err, user);
   }
 ));
 
