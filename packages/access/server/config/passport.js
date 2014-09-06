@@ -212,29 +212,11 @@ module.exports = function(passport) {
     callbackURL: config.fitbit.callbackURL,
   },
   function(token, tokenSecret, profile, done) {
-    User.findOne({
-        'fitbit.id': profile.id
-      }, function(err, user) {
-        if (user) {
-          return done(err, user);
-        }
-        console.log('=============================');
-        console.log(profile);
-        console.log('=============================');
-
-        user = new User({
-          name: profile.displayName,
-          email: 'test@test.com',
-          username: profile.id,
-          provider: 'fitbit',
-          fitbit: profile._json,
-          roles: ['authenticated']
-        });
-        user.save(function(err) {
-          if (err) console.log(err);
-          return done(err, user);
-        });
-      });
+    //TODO - look up current logged in user
+    //TODO - see if fitbit IDs match
+    //TODO - update fitbit object in user record
+    
+    console.log(profile);     
   }
 ));
 
