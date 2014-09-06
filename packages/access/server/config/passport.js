@@ -211,13 +211,13 @@ module.exports = function(passport) {
     consumerSecret: config.fitbit.clientSecret,
     callbackURL: config.fitbit.callbackURL,
   },
-  function(token, tokenSecret, profile, done) {
+  function(token, tokenSecret, profile, done, userid) {
     //TODO - look up current logged in user
     //TODO - see if fitbit IDs match
     //TODO - update fitbit object in user record
     
     console.log(profile);     
-    return done(err, user);
+    return done;
   }
 ));
 
