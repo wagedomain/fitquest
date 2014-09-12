@@ -215,8 +215,7 @@ module.exports = function(passport) {
     //TODO - look up current logged in user
     //TODO - see if fitbit IDs match
     //TODO - update fitbit object in user record
-    
-    console.log(req);     
+ 
     return done;
   }
 ));
