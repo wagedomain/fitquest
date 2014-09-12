@@ -34,9 +34,9 @@ module.exports = {
     callbackURL: 'http://localhost:3000/auth/linkedin/callback'
   },
   fitbit: {
-    clientID: 'fab7cf2cb7f946bda440b58d8a533711',
-    clientSecret: '666803d53dbc4e34abbf7d0eec20d1db',
-    callbackURL: 'https://www.fitbit.com/oauth/authorize'
+    clientID: '260e35e76cbb4fd78a2884051642b7c2',
+    clientSecret: 'a0356dd7f494437d9964111c6e2f2c53',
+    callbackURL: 'http://fitquest-rpg.heroku.com/auth/fitbit/callback'
   },
   emailFrom: 'SENDER EMAIL ADDRESS', // sender address like ABC <abc@example.com>
   mailer: {
