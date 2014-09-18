@@ -57,7 +57,7 @@ module.exports = {
   fitbit: {
     clientID: 'fab7cf2cb7f946bda440b58d8a533711',
     clientSecret: '666803d53dbc4e34abbf7d0eec20d1db',
-    callbackURL: 'http://fitquest-rpg.herokuapp.com/auth/fitbit/callback'
+    callbackURL: '/auth/fitbit/callback'
   },
   emailFrom: 'SENDER EMAIL ADDRESS', // sender address like ABC <abc@example.com>
   mailer: {
