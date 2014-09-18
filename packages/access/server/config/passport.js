@@ -211,13 +211,26 @@ module.exports = function(passport) {
     consumerSecret: config.fitbit.clientSecret,
     callbackURL: config.fitbit.callbackURL,
   },
-  function(token, tokenSecret, profile, done, userid) {
-    //TODO - look up current logged in user
-    //TODO - see if fitbit IDs match
-    //TODO - update fitbit object in user record
- 
-    return done;
-  }
-));
+  function(accessToken, refreshToken, profile, done) {
+    console.log(profile);
+      User.findOne({
+        'fitbit.id': profile.id
+      }, function(err, user) {
+        if (user) {
+          return done(err, user);
+        }
+        user = new User({
+          name: profile.displayName,
+          //email: profile.emails[0].value,
+          //username: profile.emails[0].value,
+          provider: 'linkedin',
+          roles: ['authenticated']
+        });
+        user.save(function(err) {
+          if (err) console.log(err);
+          return done(err, user);
+        });
+      });
+    }));
 
 };
