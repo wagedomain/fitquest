@@ -212,14 +212,12 @@ module.exports = function(passport) {
     callbackURL: config.fitbit.callbackURL,
   },
   function(accessToken, refreshToken, profile, done) {
-    console.log(profile);
       User.findOne({
         username: profile.encodedId
       }, function(err, user) {
         if (user) {
           return done(err, user);
         }
-        console.log(profile);
         user = new User({
           name: profile.displayName,
           //email: profile.emails[0].value,
