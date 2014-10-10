@@ -214,7 +214,7 @@ module.exports = function(passport) {
   function(accessToken, refreshToken, profile, done) {
     console.log(profile);
       User.findOne({
-        'fitbit.id': profile.id
+        username: profile.encodedId
       }, function(err, user) {
         if (user) {
           return done(err, user);
@@ -222,8 +222,8 @@ module.exports = function(passport) {
         user = new User({
           name: profile.displayName,
           //email: profile.emails[0].value,
-          //username: profile.emails[0].value,
-          provider: 'linkedin',
+          username: profile.encodedId,
+          provider: 'fitbit',
           roles: ['authenticated']
         });
         user.save(function(err) {

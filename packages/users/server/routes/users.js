@@ -108,9 +108,7 @@ module.exports = function(MeanUser, app, auth, database, passport) {
     }), users.signin);
 
   app.route('/auth/fitbit/callback')
-    .get(function(req, res) { 
-      console.log(req);
-      return passport.authenticate('fitbit', {
+    .get(passport.authenticate('fitbit', {
       failureRedirect: '#!/login'
-    }), users.authCallback;});
+    }), users.authCallback);
 };
