@@ -12,7 +12,7 @@ angular.module('mean.system').controller('IndexController', ['$scope', '$rootSco
     getCharacter = function(userId) {
         $http.get('/characters?userId='+userId)
         .success(function(response){
-        	if(response && response !== null){
+        	if(response && response !== 'null'){
           		$scope.character = response;
           		Global.character = response;
           	} else {
